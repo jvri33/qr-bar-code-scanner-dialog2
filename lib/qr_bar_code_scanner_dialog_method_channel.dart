@@ -29,7 +29,7 @@ class MethodChannelQrBarCodeScannerDialog
 
     showDialog(
         context: context!,
-        builder: (context) => return BackdropFilter(filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2), child:Container(
+        builder: (context) => BackdropFilter(filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2), child:Container(
               alignment: Alignment.center,
               child: Container(
                 height: 400,
