@@ -39,9 +39,9 @@ class MethodChannelQrBarCodeScannerDialog
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 228, 253, 240),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
-                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(14),
+                    bottomRight: Radius.circular(14),
+                    topRight: Radius.circular(14),
                     bottomLeft: Radius.circular(0)),
                 ),
                 child: ScannerWidget(onScanSuccess: (code) {
