@@ -29,7 +29,11 @@ class MethodChannelQrBarCodeScannerDialog
 
     showDialog(
         context: context!,
-        builder: (context) => Container(
+        builder: (context) => return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.5, end: 1.0).animate(curvedAnimation),
+            child: Container(
               alignment: Alignment.center,
               child: Container(
                 height: 400,
@@ -50,7 +54,7 @@ class MethodChannelQrBarCodeScannerDialog
                     onScanSuccess(code);
                   }
                 }),
-              ),
+              ))),
             ));
   }
 }
