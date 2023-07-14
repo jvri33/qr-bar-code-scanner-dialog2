@@ -37,8 +37,12 @@ class MethodChannelQrBarCodeScannerDialog
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(255, 228, 253, 240),
+                  borderRadius: borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(0)),
                 ),
                 child: ScannerWidget(onScanSuccess: (code) {
                   if (code != null) {
