@@ -58,11 +58,11 @@ class MethodChannelQrBarCodeScannerDialog
                   if (code != null) {
                     Navigator.pop(context);
                     onScanSuccess(code);
-                  }
+               }
                 }),
               ))),
-            );}
-  }
+            );});
+  
 }
 
 class ScannerWidget extends StatefulWidget {
