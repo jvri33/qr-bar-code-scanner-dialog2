@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -29,7 +29,7 @@ class MethodChannelQrBarCodeScannerDialog
 
     showDialog(
         context: context!,
-        builder: (context) => Container(
+        builder: (context) => return BackdropFilter(filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2), child:Container(
               alignment: Alignment.center,
               child: Container(
                 height: 400,
@@ -51,7 +51,7 @@ class MethodChannelQrBarCodeScannerDialog
                   }
                 }),
               ),
-            ));
+            )));
   }
 }
 
@@ -122,7 +122,7 @@ class _ScannerWidgetState extends State<ScannerWidget> {
       },
       overlay: QrScannerOverlayShape(
           borderColor: Colors.black,
-          borderRadius: 10,
+          borderRadius: 20,
           borderLength: 30,
           borderWidth: 10,
           cutOutSize: smallestDimension - 140),
