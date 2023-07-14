@@ -91,7 +91,7 @@ class QrBarCodeScannerDialogWeb extends QrBarCodeScannerDialogPlatform {
         
         #qr-reader__filescan_input,
         #qr-reader__camera_permission_button {
-          background: #3b99e8;
+          background: #007364;
           border: none;
           padding: 8px;
           border-radius: 5px;
