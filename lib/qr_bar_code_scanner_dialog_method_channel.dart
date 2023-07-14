@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -27,19 +27,9 @@ class MethodChannelQrBarCodeScannerDialog
     /// context is required to show alert in non-web platforms
     assert(context != null);
 
-    showGeneralDialog(pageBuilder: (context, animation, secondaryAnimation) {
-        return Container();
-      },
+    showDialog(
         context: context!,
-        transitionBuilder: (BuildContext context, a1, a2, w) {
-            final curvedAnimation = CurvedAnimation(
-            parent: a1,
-            curve: Curves.fastOutSlowIn);
-        return BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-          child: ScaleTransition(
-            scale: Tween<double>(begin: 0.5, end: 1.0).animate(curvedAnimation),
-            child: Container(
+        builder: (context) => Container(
               alignment: Alignment.center,
               child: Container(
                 height: 400,
@@ -48,7 +38,7 @@ class MethodChannelQrBarCodeScannerDialog
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 228, 253, 240),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -58,11 +48,11 @@ class MethodChannelQrBarCodeScannerDialog
                   if (code != null) {
                     Navigator.pop(context);
                     onScanSuccess(code);
-               }
+                  }
                 }),
-              ))),
-            );});
-  
+              ),
+            ));
+  }
 }
 
 class ScannerWidget extends StatefulWidget {
