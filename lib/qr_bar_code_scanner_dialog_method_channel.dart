@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -27,9 +27,15 @@ class MethodChannelQrBarCodeScannerDialog
     /// context is required to show alert in non-web platforms
     assert(context != null);
 
-    showDialog(
+    showGeneralDialog(pageBuilder: (context, animation, secondaryAnimation) {
+        return Container();
+      },
         context: context!,
-        builder: (context) => return BackdropFilter(
+        transitionBuilder: (BuildContext context, a1, a2, w) {
+            final curvedAnimation = CurvedAnimation(
+            parent: a1,
+            curve: Curves.fastOutSlowIn);
+        return BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
           child: ScaleTransition(
             scale: Tween<double>(begin: 0.5, end: 1.0).animate(curvedAnimation),
@@ -55,7 +61,7 @@ class MethodChannelQrBarCodeScannerDialog
                   }
                 }),
               ))),
-            ));
+            ));}
   }
 }
 
