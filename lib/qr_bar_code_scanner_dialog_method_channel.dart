@@ -95,7 +95,7 @@ class _ScannerWidgetState extends State<ScannerWidget> {
           ),
         ),
         ElevatedButton(
-            style: ElevatedButton.styleFrom(color: Theme.of(context).primaryColor),
+            style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
           onPressed: () {
             Navigator.pop(context);
           },
